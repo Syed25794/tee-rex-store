@@ -38,7 +38,7 @@ export const LandingPage = () => {
       >
         <Box display="flex" flexWrap="wrap" >
           {data.map((product) => {
-            return <ProductCard data={product} key={product.id} />;
+            return <ProductCard data={product} key={product.id}/>;
           })}
         </Box>
       </Box>
