@@ -10,9 +10,12 @@ import {
 import { useContext } from "react";
 import { ProductContext } from "../context/CartProducts";
 
-export const ProductCard = ({ data,addToCart }) => {
-    const [handleCartProducts]=useContext(ProductContext);
-
+export const ProductCard = ({ data}) => {
+  const [,dispatch]=useContext(ProductContext);
+  const handleCartProducts=(id)=>{
+    dispatch({type:"ADD_INTO_CART",payload:id})
+    alert("Product Added In Cart Successfully.");
+  }
   return (
     <Card maxW="300px" margin="20px">
       <CardBody>
@@ -22,7 +25,7 @@ export const ProductCard = ({ data,addToCart }) => {
           <Text color="blue.600" fontSize="2xl">
             ₹{data.price}
           </Text>
-          <Button variant="solid" colorScheme="blue" onClick={()=>handleCartProducts(data.name)}>
+          <Button variant="solid" colorScheme="blue" onClick={()=>handleCartProducts(data.id)}>
             Add to cart
           </Button>
         </Stack>
