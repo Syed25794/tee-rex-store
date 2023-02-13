@@ -22,8 +22,11 @@ export const Reducer = (state,action)=>{
                 ...state,
                 cartProducts:products
             }
-        case "SEARCH":
-            return {...state}
+        case "FILTERED_DATA":
+            return {
+                ...state,
+                filterProducts:[...state.filterProducts,...payload]
+            }
         default:
             return state;
     }

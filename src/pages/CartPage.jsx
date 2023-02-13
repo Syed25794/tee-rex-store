@@ -7,7 +7,7 @@ const CartPage = () => {
   const [state,]=useContext(ProductContext);
   const {cartProducts}=state;
   return (
-    <Box>
+    <Box marginTop="100px">
       {cartProducts.map((product)=>{
         return <CartCard data={product} key={product.id} />
       })}

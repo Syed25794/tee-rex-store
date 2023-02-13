@@ -5,7 +5,8 @@ export const ProductContext = createContext();
 
 let initState={
     cartProducts:[],
-    products:[]
+    products:[],
+    filterProducts:[]
 };
 
 export const ProductsContextProviderWrapper = ({children}) =>{
