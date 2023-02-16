@@ -1,4 +1,4 @@
-import { FILTER_PRODUCTS, GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCTS_SUCCESS, SEARCH_PRODUCTS } from "./ProductAction";
+import { FILTER_PRODUCTS, GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCTS_SUCCESS, SEARCH_PRODUCTS } from "./ProductActionTypes";
 
 let initState={
     products:[],
@@ -20,7 +20,8 @@ export const ProductReducer = (state=initState,action)=>{
             return {
                 ...state,
                 isSuccess:true,
-                isLoading:false
+                isLoading:false,
+                products:payload
             };
         case GET_PRODUCTS_ERROR:
             return {

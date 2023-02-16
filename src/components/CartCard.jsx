@@ -9,13 +9,13 @@ import {
 } from "@chakra-ui/react";
 import { AiOutlineDown } from "react-icons/ai";
 import { IoIosArrowUp } from "react-icons/io";
-import React, { useContext, useState } from "react";
-import { ProductContext } from "../Redux/CartProducts";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const CartCard = ({ data, setTotalPrice }) => {
   const [count, setCount] = useState(1);
-  const [state, dispatch] = useContext(ProductContext);
-
+  const dispatch = useSelector();
+  const state = {cartProducts:[]};
   const deleteProduct = (id) => {
     dispatch({ type: "DELETE", payload: id });
   };

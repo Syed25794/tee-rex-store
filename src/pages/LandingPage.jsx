@@ -1,9 +1,9 @@
 import { Box, Button, Input } from "@chakra-ui/react";
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 import { ProductCard } from "../components/ProductCard";
 import FilterCard from "../components/FilterCard";
-import { ProductContext } from "../Redux/CartProducts";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../Redux/Product/ProductActions";
 
 const filterProperties = [
   {
@@ -48,23 +48,17 @@ const filterProperties = [
 ];
 
 export const LandingPage = () => {
-  const [state, dispatch] = useContext(ProductContext);
+  const dispatch = useDispatch();
+  const state = useSelector((store)=>store.ProductReducer);
   const [query, setQuery] = useState("");
 
   const handleSearch = () => {
-    dispatch({ type: "SEARCH", payload: query });
     setQuery("");
   };
 
   useEffect(() => {
-    axios
-      .get(
-        "https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json"
-      )
-      .then((d) => {
-        dispatch({ type: "ADD_DATA", payload: d.data });
-      })
-      .catch((err) => console.log(err));
+    console.log("hi");
+    dispatch(getProducts());
   }, [dispatch]);
 
   return (

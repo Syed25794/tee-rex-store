@@ -44,6 +44,6 @@ export const CartReducer = ( state = initState , action ) =>{
         case "ADD_PRODUCT":
             return state;
         default :
-        return  payload;
+        return  state;
     }
 }

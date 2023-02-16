@@ -1,12 +1,9 @@
 import { Box, Icon, Text } from "@chakra-ui/react"
-import { useContext } from "react"
 import {BsFillCartCheckFill} from 'react-icons/bs'
 import { Link } from "react-router-dom"
-import { ProductContext } from "../context/CartProducts"
 
 export const Navbar = ()=>{
-    const [state,]=useContext(ProductContext);
-    const cartValue = state.cartProducts.length;
+    const cartValue = 0;
     return (
         <Box top={0} left={0} right={0} position="fixed" zIndex={1} background="#0f52ba" color="white" boxShadow="rgba(0, 0, 0, 0.1) 0px 1px 2px 0px" alignItems="center" display={"flex"} justifyContent="space-around" h="10vh">
             <Link to="/" style={{ textDecoration: 'none',fontSize:"20px" }}>TeeRex</Link>

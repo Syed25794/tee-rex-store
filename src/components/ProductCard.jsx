@@ -7,11 +7,10 @@ import {
   Text,
   Image,
 } from "@chakra-ui/react";
-import { useContext } from "react";
-import { ProductContext } from "../Redux/CartProducts";
+import { useDispatch } from "react-redux";
 
 export const ProductCard = ({ data }) => {
-  const [, dispatch] = useContext(ProductContext);
+  const dispatch = useDispatch();
   const handleCartProducts = (id) => {
     dispatch({ type: "ADD_INTO_CART", payload: id });
     alert("Product Added In Cart Successfully.");

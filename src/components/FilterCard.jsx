@@ -1,10 +1,10 @@
 import { Box, Checkbox, Heading } from "@chakra-ui/react";
-import React, { useContext } from "react";
-import { ProductContext } from "../Redux/CartProducts";
+import React from "react";
+import { useDispatch } from "react-redux";
 
 const FilterCard = ({ data }) => {
-  const [state, dispatch] = useContext(ProductContext);
-  console.log(state);
+  const state = {products:[]};
+  const dispatch = useDispatch();
   const handleClick = (e) => {
     const { checked, value } = e.target;
     if (checked) {
