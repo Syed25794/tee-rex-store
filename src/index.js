@@ -4,15 +4,15 @@ import "./index.css";
 import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
-import { ProductsContextProviderWrapper } from "./context/CartProducts";
+import { Provider as ReduxProvider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ChakraProvider>
-    <ProductsContextProviderWrapper>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ReduxProvider>
         <App />
-      </BrowserRouter>
-    </ProductsContextProviderWrapper>
+      </ReduxProvider>
+    </BrowserRouter>
   </ChakraProvider>
 );
